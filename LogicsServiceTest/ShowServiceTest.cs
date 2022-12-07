@@ -1,18 +1,21 @@
 using System.Runtime.InteropServices;
 using LogicsService;
+using Umid.TestRunner;
 
 namespace LogicsServiceTest;
 
+[TestClass]
 public class ShowServiceTest
 {
     private readonly ShowService _showService;
 
-    public ShowServiceTest(ShowService showService)
+    public ShowServiceTest()
     {
-        _showService = showService;
+        _showService = new ShowService();
     }
 
-    public void MyMethod(string parameter)
+    [TestMethod]
+    public void MyMethod()
     {
         if(16 == _showService.Show().Count())
             Console.WriteLine($"uzunligi True");

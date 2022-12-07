@@ -1,15 +1,20 @@
 using LogicsService;
+using Umid.TestRunner;
 
 namespace LogicsServiceTest;
 
+[TestClass]
 public class LogicServiceTest
 {
     private readonly LogicService _logicService;
 
-    public LogicServiceTest(LogicService logicService)
+    public LogicServiceTest()
     {
-        _logicService = logicService;
+        _logicService = new LogicService();
     }
+
+    [TestMethod]
+    [TestMethodParameters(1, 2, 3)]
     public void SumTest(int a, int b, int s)
     {
         if(s == _logicService.Sum(a, b))
@@ -18,6 +23,8 @@ public class LogicServiceTest
             Console.WriteLine($"False");
             
     }
+
+    [TestMethod]
     public void MinusTest()
     {
         if (2 == _logicService.Minus(3, 1))
